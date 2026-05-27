@@ -11,6 +11,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Montserrat',sans-serif;background:#fff;color:#1a1a1a;overflow-x:hidden}
+html{scroll-behavior:smooth;overflow-x:hidden;max-width:100%}
 
 /* ── VARIABLES ── */
 :root{
@@ -65,9 +66,34 @@ body{font-family:'Montserrat',sans-serif;background:#fff;color:#1a1a1a;overflow-
 .nav.scrolled .nav-book{background:var(--rose);color:#fff;border-color:var(--rose)}
 .nav-book:hover{background:var(--rose);color:#fff;border-color:var(--rose)}
 .nav.scrolled .nav-book:hover{background:var(--rose-dark);border-color:var(--rose-dark)}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px;z-index:1001}
 .hamburger span{width:24px;height:2px;background:#fff;transition:all 0.3s;display:block}
 .nav.scrolled .hamburger span{background:var(--black)}
+
+/* Mobile drawer */
+.mobile-menu{
+  display:none;position:fixed;top:0;left:0;right:0;bottom:0;
+  background:rgba(13,13,13,0.97);z-index:1000;
+  flex-direction:column;align-items:center;justify-content:center;gap:2rem;
+}
+.mobile-menu.open{display:flex}
+.mobile-menu a{
+  font-size:1.5rem;font-family:'Cormorant Garamond',serif;font-weight:300;
+  color:rgba(255,255,255,0.85);text-decoration:none;letter-spacing:0.15em;
+  transition:color 0.3s;
+}
+.mobile-menu a:hover{color:var(--rose)}
+.mobile-menu-close{
+  position:absolute;top:1.5rem;right:1.5rem;
+  font-size:1.5rem;color:rgba(255,255,255,0.6);cursor:pointer;
+  background:none;border:none;
+}
+.mobile-book-btn{
+  margin-top:1rem;background:var(--rose);color:#fff !important;
+  padding:0.875rem 2.5rem !important;font-size:0.7rem !important;
+  letter-spacing:0.2em;font-family:'Montserrat',sans-serif !important;
+  font-weight:600 !important;
+}
 
 /* ── HERO SLIDESHOW ── */
 .hero{
@@ -520,7 +546,7 @@ footer{
   .nav.scrolled{padding:1rem 1.5rem}
   .nav-links,.nav-book{display:none}
   .hamburger{display:flex}
-  .hero-content{left:5%;right:5%;max-width:100%}
+  .hero-content{left:0;right:0;padding:0 1.5rem;max-width:100%}
   .stats-bar{grid-template-columns:repeat(2,1fr)}
   .services-section,.gallery-section,.team-section,.pricing-section{padding:4rem 1.5rem}
   .services-grid{grid-template-columns:1fr;grid-template-rows:auto}
@@ -564,6 +590,17 @@ footer{
     <span></span><span></span><span></span>
   </div>
 </nav>
+
+<!-- MOBILE MENU DRAWER -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" onclick="toggleMenu()">✕</button>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#gallery" onclick="toggleMenu()">Gallery</a>
+  <a href="#bridal" onclick="toggleMenu()">Bridal</a>
+  <a href="#pricing" onclick="toggleMenu()">Pricing</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <a href="#contact" class="mobile-book-btn" onclick="toggleMenu()">Book Now</a>
+</div>
 
 <!-- HERO SLIDESHOW -->
 <section class="hero" id="home">
@@ -1079,8 +1116,9 @@ document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => 
 
 // MOBILE MENU
 function toggleMenu() {
-  // simple scroll to contact on mobile
-  document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('open');
+  document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
 }
 </script>
 </body>
