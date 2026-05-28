@@ -296,7 +296,7 @@
       happyTooth.classList.add('tooth-enter');
       sparkle.classList.remove('burst');
       setTimeout(() => { sparkle.style.opacity = '0'; }, 400);
-      bubbleText.textContent = 'Hey! You Came! I am Happy☺️';
+      bubbleText.textContent = 'Hey! You Coming! I am Happy☺️';
     }, 4500);
 
     // Step 5 — hide bubble
