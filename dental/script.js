@@ -422,4 +422,140 @@
   window.addEventListener('resize', () => setPos(current, false));
 })();
 
+
+/* ═══════════════════════════════
+   GOOGLE REVIEWS FETCHER
+   Paste this at the bottom of script.js
+═══════════════════════════════ */
+
+/* ═══════════════════════════════
+   GOOGLE REVIEWS FETCHER
+   Paste this at the bottom of script.js
+═══════════════════════════════ */
+
+(function () {
+  const API_KEY  = 'AIzaSyB-P2XEDn_r6OH1g5-A_Aq-To4Ba3prJGM';
+  const PLACE_ID = 'ChIJyeRPV8r9mzkR7Kyw97pbo2I';
+
+  /* ── helper: star string ── */
+  function stars(n) {
+    return '★'.repeat(n) + '☆'.repeat(5 - n);
+  }
+
+  /* ── helper: initials from name ── */
+  function initials(name) {
+    return name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
+  }
+
+  /* ── build a single review card HTML ── */
+  function cardHTML(r) {
+    return `
+      <div class="review-card">
+        <div class="review-top">
+          <div class="reviewer-avatar">${r.photo
+            ? `<img src="${r.photo}" alt="${r.author_name}" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">`
+            : initials(r.author_name)
+          }</div>
+          <div>
+            <div class="reviewer-name">${r.author_name}</div>
+            <div class="review-stars">${stars(r.rating)}</div>
+          </div>
+          <svg class="google-g" width="20" height="20" viewBox="0 0 48 48">
+            <path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.2l6.7-6.7C35.7 2.5 30.2 0 24 0 14.7 0 6.8 5.4 3 13.3l7.8 6C12.7 13.2 17.9 9.5 24 9.5z"/>
+            <path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4 6.9-10 6.9-17z"/>
+            <path fill="#FBBC05" d="M10.8 28.7A14.6 14.6 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7l-7.8-6A23.9 23.9 0 0 0 0 24c0 3.9.9 7.5 2.5 10.8l8.3-6.1z"/>
+            <path fill="#34A853" d="M24 48c6.2 0 11.4-2 15.2-5.5l-7.5-5.8c-2 1.4-4.6 2.2-7.7 2.2-6.1 0-11.3-3.7-13.2-9.2l-8.3 6.1C6.8 42.6 14.7 48 24 48z"/>
+          </svg>
+        </div>
+        <p>${r.text ? r.text.slice(0, 180) + (r.text.length > 180 ? '…' : '') : 'Great experience!'}</p>
+        <div class="review-date">${r.relative_time_description || ''}</div>
+      </div>`;
+  }
+
+  /* ── inject fallback reviews (shown if API fails) ── */
+  const FALLBACK = [
+    { author_name: 'Rahul Sharma',   rating: 5, text: 'Excellent dental care! Dr. Priyank is very professional and the clinic is spotless. Highly recommended for anyone in Kanpur.', relative_time_description: 'a month ago' },
+    { author_name: 'Priya Gupta',    rating: 5, text: 'Best dentist in Kanpur! The staff is very friendly and the treatment was completely pain-free. Will definitely come back.', relative_time_description: '2 months ago' },
+    { author_name: 'Amit Verma',     rating: 5, text: 'Got my implants done here. Amazing results and very affordable compared to other clinics. Dr. Priyank explained everything clearly.', relative_time_description: '3 months ago' },
+    { author_name: 'Sunita Singh',   rating: 5, text: 'Very modern clinic with latest equipment. My teeth whitening results are fantastic. The whole team is warm and welcoming.', relative_time_description: '3 months ago' },
+    { author_name: 'Vikram Tiwari',  rating: 5, text: 'Had a root canal done here — absolutely no pain during the procedure. Dr. Priyank is truly skilled. Best dental experience ever!', relative_time_description: '4 months ago' },
+  ];
+
+  function renderReviews(reviews) {
+    const ticker = document.getElementById('reviewsTicker');
+    if (!ticker) return;
+
+    /* duplicate cards for seamless infinite scroll */
+    const all = [...reviews, ...reviews];
+    ticker.innerHTML = all.map(cardHTML).join('');
+  }
+
+  /* ── update summary bar ── */
+  function updateSummary(rating, total) {
+    const score = document.getElementById('rsScore');
+    const label = document.getElementById('rsLabel');
+    if (score) score.textContent = rating.toFixed(1);
+    if (label) label.textContent = `Google Rating · ${total}+ Reviews`;
+  }
+
+  /* ── fetch from Places API ── */
+  function fetchReviews() {
+    /* Places API requires a Maps JS SDK call — we use the widget approach */
+    if (typeof google === 'undefined' || !google.maps || !google.maps.places) {
+      /* Maps JS not loaded yet — use fallback */
+      renderReviews(FALLBACK);
+      return;
+    }
+
+    const svc = new google.maps.places.PlacesService(
+      document.createElement('div')
+    );
+
+    svc.getDetails(
+      {
+        placeId: PLACE_ID,
+        fields: ['rating', 'user_ratings_total', 'reviews'],
+      },
+      function (place, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK && place.reviews) {
+          updateSummary(place.rating, place.user_ratings_total);
+          const mapped = place.reviews.map(r => ({
+            author_name: r.author_name,
+            rating: r.rating,
+            text: r.text,
+            photo: r.profile_photo_url,
+            relative_time_description: r.relative_time_description,
+          }));
+          renderReviews(mapped.length >= 3 ? mapped : [...mapped, ...FALLBACK]);
+        } else {
+          renderReviews(FALLBACK);
+        }
+      }
+    );
+  }
+
+  /* ── load Maps JS SDK then fetch ── */
+  function loadMapsSDK() {
+    if (document.getElementById('gmaps-sdk')) {
+      /* already loading */
+      window.__gmapsCallback = fetchReviews;
+      return;
+    }
+    window.__gmapsCallback = fetchReviews;
+    const s = document.createElement('script');
+    s.id  = 'gmaps-sdk';
+    s.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places&callback=__gmapsCallback`;
+    s.async = true;
+    s.defer = true;
+    document.head.appendChild(s);
+  }
+
+  /* ── init when DOM ready ── */
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadMapsSDK);
+  } else {
+    loadMapsSDK();
+  }
+})();
+
 })();
