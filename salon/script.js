@@ -9,14 +9,14 @@
 // ─────────────────────────────────────────────
 // 1. LOADER
 // ─────────────────────────────────────────────
-const loader = document.getElementById('loader');
+document.body.style.overflow = 'hidden';
 
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const loader = document.getElementById('loader');
   setTimeout(() => {
     loader.classList.add('hidden');
     document.body.style.overflow = 'auto';
-  }, 500);
+  }, 800);
 });
 
 document.body.style.overflow = 'hidden';
