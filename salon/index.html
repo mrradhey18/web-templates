@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meetu Unisex Saloon — Where Style Meets Soul</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Clash+Display:wght@400;600;700&family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ░░ CURSOR ░░ -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-trail" id="cursorTrail"></div>
+
+  <!-- ░░ LOADER ░░ -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-letters">
+        <span>M</span><span>E</span><span>E</span><span>T</span><span>U</span>
+      </div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+      <p class="loader-sub">Loading your experience...</p>
+    </div>
+  </div>
+
+  <!-- ░░ NOISE OVERLAY ░░ -->
+  <div class="noise"></div>
+
+  <!-- ░░ NAV ░░ -->
+  <nav class="nav" id="nav">
+    <div class="nav-logo">
+      <span class="logo-m">M</span>EETU
+    </div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Book Now</a>
+    <button class="nav-burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ░░ MOBILE MENU ░░ -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#services" class="mm-link">Services</a></li>
+      <li><a href="#gallery" class="mm-link">Gallery</a></li>
+      <li><a href="#pricing" class="mm-link">Pricing</a></li>
+      <li><a href="#team" class="mm-link">Team</a></li>
+      <li><a href="#contact" class="mm-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- ░░ HERO ░░ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="orb orb-4"></div>
+      <div class="grid-lines"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Lucknow's Boldest Salon
+      </div>
+
+      <h1 class="hero-title">
+        <span class="title-line" data-text="WHERE">WHERE</span>
+        <span class="title-line gradient-text" data-text="STYLE">STYLE</span>
+        <span class="title-line" data-text="MEETS SOUL">MEETS SOUL</span>
+      </h1>
+
+      <p class="hero-sub">
+        Haircuts · Color · Skincare · Nails · Grooming<br/>
+        <em>For everyone. No exceptions.</em>
+      </p>
+
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">
+          <span>Book Appointment</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#gallery" class="btn btn-ghost">See Our Work</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <strong>2000+</strong>
+          <span>Happy Clients</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <strong>8+</strong>
+          <span>Years of Style</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <strong>15+</strong>
+          <span>Expert Stylists</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-3d">
+  <div class="scissor-wrap">
+    <div class="scissor-glow"></div>
+   <img src="scissor.png" alt="Scissor" class="scissor-svg" />
+    <div class="float-pill pill-1">✂️ Fresh Cut</div>
+    <div class="float-pill pill-2">💆 Spa Day</div>
+    <div class="float-pill pill-3">💅 Nail Art</div>
+  </div>
+   <div class="scroll-hint">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+      <span>Scroll</span>
+    </div>
+</div>
+  </section>
+  
+  <!-- ░░ MARQUEE ░░ -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span>Haircut</span><span class="marquee-dot">✦</span>
+      <span>Color</span><span class="marquee-dot">✦</span>
+      <span>Highlights</span><span class="marquee-dot">✦</span>
+      <span>Smoothening</span><span class="marquee-dot">✦</span>
+      <span>Facial</span><span class="marquee-dot">✦</span>
+      <span>Nails</span><span class="marquee-dot">✦</span>
+      <span>Beard</span><span class="marquee-dot">✦</span>
+      <span>Waxing</span><span class="marquee-dot">✦</span>
+      <span>Makeup</span><span class="marquee-dot">✦</span>
+      <span>Keratin</span><span class="marquee-dot">✦</span>
+      <!-- duplicate for seamless loop -->
+      <span>Haircut</span><span class="marquee-dot">✦</span>
+      <span>Color</span><span class="marquee-dot">✦</span>
+      <span>Highlights</span><span class="marquee-dot">✦</span>
+      <span>Smoothening</span><span class="marquee-dot">✦</span>
+      <span>Facial</span><span class="marquee-dot">✦</span>
+      <span>Nails</span><span class="marquee-dot">✦</span>
+      <span>Beard</span><span class="marquee-dot">✦</span>
+      <span>Waxing</span><span class="marquee-dot">✦</span>
+      <span>Makeup</span><span class="marquee-dot">✦</span>
+      <span>Keratin</span><span class="marquee-dot">✦</span>
+    </div>
+  </div>
+
+  <!-- ░░ SERVICES ░░ -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">What We Do</span>
+        <h2 class="section-title">Our <span class="gradient-text">Services</span></h2>
+        <p class="section-sub">Everything your style needs, under one vibrant roof.</p>
+      </div>
+
+      <div class="services-grid">
+
+        <div class="service-card" data-index="0">
+          <div class="service-icon">✂️</div>
+          <div class="service-num">01</div>
+          <h3>Hair Cutting</h3>
+          <p>Precision cuts for every face shape, hair type, and personality. Men, women, kids — all welcome.</p>
+          <div class="service-tags">
+            <span>Men</span><span>Women</span><span>Kids</span>
+          </div>
+          <div class="service-arrow">→</div>
+        </div>
+
+        <div class="service-card" data-index="1">
+          <div class="service-icon">🎨</div>
+          <div class="service-num">02</div>
+          <h3>Hair Color & Highlights</h3>
+          <p>Global color, balayage, ombre, highlights, and fashion colors that turn heads everywhere.</p>
+          <div class="service-tags">
+            <span>Balayage</span><span>Ombre</span><span>Global</span>
+          </div>
+          <div class="service-arrow">→</div>
+        </div>
+
+        <div class="service-card featured-card" data-index="2">
+          <div class="service-icon">💆</div>
+          <div class="service-num">03</div>
+          <h3>Skin & Facial</h3>
+          <p>Hydrating facials, clean-ups, de-tan, and advanced skin treatments for that natural glow.</p>
+          <div class="service-tags">
+            <span>Facial</span><span>Clean-up</span><span>De-tan</span>
+          </div>
+          <div class="service-arrow">→</div>
+        </div>
+
+        <div class="service-card" data-index="3">
+          <div class="service-icon">💅</div>
+          <div class="service-num">04</div>
+          <h3>Nail Art & Care</h3>
+          <p>Manicure, pedicure, gel nails, nail extensions, and intricate nail art designs.</p>
+          <div class="service-tags">
+            <span>Gel</span><span>Extensions</span><span>Art</span>
+          </div>
+          <div class="service-arrow">→</div>
+        </div>
+
+        <div class="service-card" data-index="4">
+          <div class="service-icon">🧔</div>
+          <div class="service-num">05</div>
+          <h3>Beard & Grooming</h3>
+          <p>Classic shaves, beard shaping, styling, and full grooming packages for the modern man.</p>
+          <div class="service-tags">
+            <span>Shave</span><span>Shape</span><span>Style</span>
+          </div>
+          <div class="service-arrow">→</div>
+        </div>
+
+        <div class="service-card" data-index="5">
+          <div class="service-icon">✨</div>
+          <div class="service-num">06</div>
+          <h3>Smoothening & Keratin</h3>
+          <p>Frizz-free, silky smooth hair with professional keratin and smoothening treatments.</p>
+          <div class="service-tags">
+            <span>Keratin</span><span>Smoothening</span>
+          </div>
+          <div class="service-arrow">→</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ GALLERY ░░ -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Our Work</span>
+        <h2 class="section-title">The <span class="gradient-text">Gallery</span></h2>
+        <p class="section-sub">Real transformations. Real people. Real wow.</p>
+      </div>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item g-tall" data-label="Hair Color">
+        <div class="gallery-img" style="background: linear-gradient(135deg, #f093fb, #f5576c);"></div>
+        <div class="gallery-overlay"><span>Hair Color</span></div>
+      </div>
+      <div class="gallery-item" data-label="Precision Cut">
+        <div class="gallery-img" style="background: linear-gradient(135deg, #4facfe, #00f2fe);"></div>
+        <div class="gallery-overlay"><span>Precision Cut</span></div>
+      </div>
+      <div class="gallery-item" data-label="Nail Art">
+        <div class="gallery-img" style="background: linear-gradient(135deg, #43e97b, #38f9d7);"></div>
+        <div class="gallery-overlay"><span>Nail Art</span></div>
+      </div>
+      <div class="gallery-item g-wide" data-label="Bridal Makeup">
+        <div class="gallery-img" style="background: linear-gradient(135deg, #fa709a, #fee140);"></div>
+        <div class="gallery-overlay"><span>Bridal Makeup</span></div>
+      </div>
+      <div class="gallery-item" data-label="Beard Styling">
+        <div class="gallery-img" style="background: linear-gradient(135deg, #a18cd1, #fbc2eb);"></div>
+        <div class="gallery-overlay"><span>Beard Styling</span></div>
+      </div>
+      <div class="gallery-item g-tall" data-label="Balayage">
+        <div class="gallery-img" style="background: linear-gradient(135deg, #ffecd2, #fcb69f);"></div>
+        <div class="gallery-overlay"><span>Balayage</span></div>
+      </div>
+      <div class="gallery-item" data-label="Facial Glow">
+        <div class="gallery-img" style="background: linear-gradient(135deg, #667eea, #764ba2);"></div>
+        <div class="gallery-overlay"><span>Facial Glow</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ PRICING ░░ -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Transparent Pricing</span>
+        <h2 class="section-title">Pick Your <span class="gradient-text">Plan</span></h2>
+        <p class="section-sub">No hidden charges. Ever.</p>
+      </div>
+
+      <div class="pricing-grid">
+
+        <div class="price-card" data-index="0">
+          <div class="price-badge">Basic</div>
+          <div class="price-amount"><sup>₹</sup>299<span>/visit</span></div>
+          <p class="price-desc">Perfect for a quick refresh</p>
+          <ul class="price-features">
+            <li>✓ Haircut (Men/Women)</li>
+            <li>✓ Basic Wash & Blow Dry</li>
+            <li>✓ Beard Trim</li>
+            <li>✓ Head Massage (15 min)</li>
+            <li class="muted">✗ Color Services</li>
+            <li class="muted">✗ Skin Treatments</li>
+          </ul>
+          <a href="#contact" class="price-btn">Get Started</a>
+        </div>
+
+        <div class="price-card featured-price" data-index="1">
+          <div class="price-badge popular">Most Popular</div>
+          <div class="price-amount"><sup>₹</sup>799<span>/visit</span></div>
+          <p class="price-desc">The full glow-up experience</p>
+          <ul class="price-features">
+            <li>✓ Premium Haircut + Style</li>
+            <li>✓ Hair Color / Highlights</li>
+            <li>✓ Facial / Clean-up</li>
+            <li>✓ Manicure or Pedicure</li>
+            <li>✓ Beard Sculpting</li>
+            <li>✓ Head + Shoulder Massage</li>
+          </ul>
+          <a href="#contact" class="price-btn btn-bright">Book Now</a>
+        </div>
+
+        <div class="price-card" data-index="2">
+          <div class="price-badge">Premium</div>
+          <div class="price-amount"><sup>₹</sup>1499<span>/visit</span></div>
+          <p class="price-desc">The royal treatment</p>
+          <ul class="price-features">
+            <li>✓ Everything in Standard</li>
+            <li>✓ Keratin / Smoothening</li>
+            <li>✓ Nail Extensions + Art</li>
+            <li>✓ Advanced Skin Treatment</li>
+            <li>✓ Bridal / Event Makeup</li>
+            <li>✓ Priority Booking</li>
+          </ul>
+          <a href="#contact" class="price-btn">Get Started</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ TEAM ░░ -->
+   <section class="team" id="team">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">Our Experts</span>
+      <h2 class="section-title">Our <span class="gradient-text">Team</span></h2>
+      <p class="section-sub">The people behind your best look.</p>
+    </div>
+
+    <div class="team-grid">
+
+      <div class="team-card" data-index="0">
+        <div class="ig-story-ring">
+          <div class="team-avatar">
+            <img src="meetu.jpg" alt="Meetu" />
+          </div>
+        </div>
+        <div class="ig-handle">@meetu.styles</div>
+        <h3>Meetu</h3>
+        <span class="team-role">Founder & Master Stylist</span>
+        <div class="ig-stats">
+          <div class="ig-stat"><strong>486</strong><span>posts</span></div>
+          <div class="ig-stat"><strong>12.4k</strong><span>followers</span></div>
+          <div class="ig-stat"><strong>312</strong><span>following</span></div>
+        </div>
+        <p>12+ years transforming hair and lives ✂️ Color specialist & bridal expert 💍 Kanpur's finest 📍</p>
+        <div class="ig-tags"><span>Color Expert</span><span>Bridal</span><span>Cuts</span></div>
+        <button class="ig-follow">Follow</button>
+      </div>
+
+      <div class="team-card" data-index="1">
+        <div class="ig-story-ring ring-blue">
+          <div class="team-avatar">
+            <img src="riya.jpg" alt="Riya" />
+          </div>
+        </div>
+        <div class="ig-handle">@riya.glowup</div>
+        <h3>Riya</h3>
+        <span class="team-role">Skin & Nail Specialist</span>
+        <div class="ig-stats">
+          <div class="ig-stat"><strong>274</strong><span>posts</span></div>
+          <div class="ig-stat"><strong>8.1k</strong><span>followers</span></div>
+          <div class="ig-stat"><strong>198</strong><span>following</span></div>
+        </div>
+        <p>Certified aesthetician 🌸 Nail art is my therapy 💅 Skin that glows, always ✨</p>
+        <div class="ig-tags"><span>Facials</span><span>Nail Art</span><span>Waxing</span></div>
+        <button class="ig-follow">Follow</button>
+      </div>
+
+      <div class="team-card" data-index="2">
+        <div class="ig-story-ring ring-green">
+          <div class="team-avatar">
+            <img src="arjun.jpg" alt="Arjun" />
+          </div>
+        </div>
+        <div class="ig-handle">@arjun.cuts</div>
+        <h3>Arjun</h3>
+        <span class="team-role">Men's Grooming Expert</span>
+        <div class="ig-stats">
+          <div class="ig-stat"><strong>193</strong><span>posts</span></div>
+          <div class="ig-stat"><strong>5.6k</strong><span>followers</span></div>
+          <div class="ig-stat"><strong>143</strong><span>following</span></div>
+        </div>
+        <p>The beard whisperer 🧔 Precision cuts only 💈 Classic shaves & modern styles 🔥</p>
+        <div class="ig-tags"><span>Beard</span><span>Men's Cut</span><span>Shave</span></div>
+        <button class="ig-follow">Follow</button>
+      </div>
+
+      <div class="team-card" data-index="3">
+        <div class="ig-story-ring ring-orange">
+          <div class="team-avatar">
+            <img src="sana.jpg" alt="Sana" />
+          </div>
+        </div>
+        <div class="ig-handle">@sana.colorist</div>
+        <h3>Sana</h3>
+        <span class="team-role">Hair Color Artist</span>
+        <div class="ig-stats">
+          <div class="ig-stat"><strong>341</strong><span>posts</span></div>
+          <div class="ig-stat"><strong>9.8k</strong><span>followers</span></div>
+          <div class="ig-stat"><strong>267</strong><span>following</span></div>
+        </div>
+        <p>Your hair is my canvas 🎨 Balayage & ombre queen 👑 Fashion colors that pop 💜</p>
+        <div class="ig-tags"><span>Balayage</span><span>Ombre</span><span>Fashion Color</span></div>
+        <button class="ig-follow">Follow</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- ░░ CONTACT ░░ -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Get In Touch</span>
+        <h2 class="section-title">Book Your <span class="gradient-text">Session</span></h2>
+        <p class="section-sub">Walk in or book ahead — we're ready for you.</p>
+      </div>
+
+      <div class="contact-wrap">
+
+        <div class="contact-info">
+          <div class="info-card">
+            <div class="info-icon">📍</div>
+            <div>
+              <strong>Location</strong>
+              <p>Meetu Unisex Saloon, Lucknow, Uttar Pradesh</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">⏰</div>
+            <div>
+              <strong>Hours</strong>
+              <p>Mon–Sat: 9AM – 9PM<br/>Sunday: 10AM – 7PM</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">📞</div>
+            <div>
+              <strong>Call / WhatsApp</strong>
+              <p>+91 98XXX XXXXX</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">✨</div>
+            <div>
+              <strong>Walk-ins Welcome</strong>
+              <p>No appointment needed for basic services</p>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <input type="text" placeholder="Your Name" required />
+            <label>Your Name</label>
+          </div>
+          <div class="form-group">
+            <input type="tel" placeholder="Phone Number" required />
+            <label>Phone Number</label>
+          </div>
+          <div class="form-group">
+            <select required>
+              <option value="" disabled selected>Select Service</option>
+              <option>Haircut</option>
+              <option>Hair Color</option>
+              <option>Facial / Skincare</option>
+              <option>Nail Art</option>
+              <option>Beard Grooming</option>
+              <option>Keratin / Smoothening</option>
+              <option>Bridal Package</option>
+              <option>Other</option>
+            </select>
+            <label>Select Service</label>
+          </div>
+          <div class="form-group">
+            <input type="date" required />
+            <label>Preferred Date</label>
+          </div>
+          <button type="submit" class="form-submit">
+            <span>Book My Appointment</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ FOOTER ░░ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span class="logo-m">M</span>EETU
+        <p>Unisex Saloon · Lucknow</p>
+      </div>
+      <div class="footer-links">
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Book</a>
+      </div>
+      <div class="footer-copy">
+        © 2026 Meetu Unisex Saloon. Made with ❤️ by <a href="https://nexaflow.bar" target="_blank">NexaFlow</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
