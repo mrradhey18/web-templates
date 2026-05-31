@@ -12,11 +12,11 @@
 const loader = document.getElementById('loader');
 
 window.addEventListener('load', () => {
+  const loader = document.getElementById('loader');
   setTimeout(() => {
     loader.classList.add('hidden');
     document.body.style.overflow = 'auto';
-    initHeroAnimations();
-  }, 2200);
+  }, 2000);
 });
 
 document.body.style.overflow = 'hidden';
