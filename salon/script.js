@@ -16,7 +16,7 @@ window.addEventListener('load', () => {
   setTimeout(() => {
     loader.classList.add('hidden');
     document.body.style.overflow = 'auto';
-  }, 2000);
+  }, 500);
 });
 
 document.body.style.overflow = 'hidden';
