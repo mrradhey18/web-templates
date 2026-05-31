@@ -33,8 +33,17 @@
 }
 
 /* ── RESET ── */
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
+}
 
 body {
   background: var(--dark);
@@ -43,11 +52,8 @@ body {
   font-size: 16px;
   line-height: 1.6;
   overflow-x: hidden;
+  overflow-y: hidden;
   cursor: none;
-}
-
-html, body {
-  overflow-x: hidden;
   max-width: 100%;
 }
 
@@ -121,6 +127,7 @@ body:hover .cursor { opacity: 1; }
 .loader.hidden {
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
 }
 
 .loader-inner {
