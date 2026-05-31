@@ -479,9 +479,9 @@ function initGlitch() {
 // Init glitch after loader
 setTimeout(initGlitch, 2500);
 
-// Run glitch once on load for mobile
-setTimeout(() => {
-  if (window.innerWidth <= 768) {
+// Auto glitch loop for mobile
+if (window.innerWidth <= 768) {
+  function runMobileGlitch() {
     document.querySelectorAll('.title-line').forEach((line, index) => {
       const original = line.textContent;
       const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -507,8 +507,10 @@ setTimeout(() => {
       }, index * 300);
     });
   }
-}, 1000);
 
+  setTimeout(runMobileGlitch, 1000);
+  setInterval(runMobileGlitch, 5000);
+}
 // ─────────────────────────────────────────────
 // 21. GALLERY ITEM TILT
 // ─────────────────────────────────────────────
