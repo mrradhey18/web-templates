@@ -479,6 +479,36 @@ function initGlitch() {
 // Init glitch after loader
 setTimeout(initGlitch, 2500);
 
+// Run glitch once on load for mobile
+setTimeout(() => {
+  if (window.innerWidth <= 768) {
+    document.querySelectorAll('.title-line').forEach((line, index) => {
+      const original = line.textContent;
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      let iterations = 0;
+
+      setTimeout(() => {
+        const interval = setInterval(() => {
+          line.textContent = original
+            .split('')
+            .map((char, i) => {
+              if (char === ' ') return ' ';
+              if (i < iterations) return original[i];
+              return chars[Math.floor(Math.random() * chars.length)];
+            })
+            .join('');
+
+          if (iterations >= original.length) {
+            clearInterval(interval);
+            line.textContent = original;
+          }
+          iterations += 0.5;
+        }, 40);
+      }, index * 300);
+    });
+  }
+}, 1000);
+
 // ─────────────────────────────────────────────
 // 21. GALLERY ITEM TILT
 // ─────────────────────────────────────────────
